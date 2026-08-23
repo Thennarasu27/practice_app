@@ -1,7 +1,7 @@
 app_name = "practice_app"
-app_title = "practice"
-app_publisher = "."
-app_description = "."
+app_title = "practice app"
+app_publisher = "Thennarasu"
+app_description = "practice"
 app_email = "thennarasum2705@gmail.com"
 app_license = "mit"
 
@@ -15,7 +15,7 @@ app_license = "mit"
 # 	{
 # 		"name": "practice_app",
 # 		"logo": "/assets/practice_app/logo.png",
-# 		"title": "practice",
+# 		"title": "practice app",
 # 		"route": "/practice_app",
 # 		"has_permission": "practice_app.api.permission.has_app_permission"
 # 	}
