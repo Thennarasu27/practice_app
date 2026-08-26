@@ -378,3 +378,17 @@ doc_events = {
         "validate":"practice_app.api.hookfunc"
     }
 }
+
+scheduler_events = {
+    "daily": [
+        "practice_app.tasks.daily_maintenance"
+    ]
+}
+
+# scheduler_events = {
+#     "cron": {
+#         "* * * * *": [
+#             "practice_app.tasks.daily_maintenance"
+#         ]
+#     }
+# }
