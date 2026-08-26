@@ -256,3 +256,125 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+#hooks
+test_string = "hello from practice_app"
+test_list = ["apple", "banana"]
+test_dict = {
+    "color": "blue"
+}
+
+# only before working
+# before_write_file = "practice_app.overrides.file.before_write"
+# write_file = "practice_app.overrides.file.write_file"
+# delete_file_data_content = "practice_app.overrides.file.delete_file"
+
+# update_website_context = "practice_app.overrides.website_context"
+# extend_website_page_controller_context = {
+#     "practice_app.www.404": "practice_app.overrides.context_404"
+# }
+
+# get_web_pages_with_dynamic_routes = "practice_app.script.get_web_pages_with_dynamic_routes"
+
+# website_redirects = [
+#     {
+#         "source": "/old",
+#         "target": "/new"
+#     }
+# ]
+
+
+
+
+
+
+#working got none
+# has_permission = {
+#     "student": "practice_app.permissions.student_has_permission"
+# }
+
+# working
+# extend_doctype_class = {
+#     "student": [
+#         "practice_app.overrides.student_extend.CustomStudent"
+#     ]
+# }
+
+
+#use extend_doctype_class insted of overide in V16
+#working
+# override_doctype_class = {
+#     "student": "practice_app.overrides.student.CustomStudent"
+# }
+
+#wokred
+# doctype_js = {
+#     "student": "public/js/student.js"
+# }
+
+#worked * - for all doctypes
+# doc_events = {
+#     "student": {
+#         "after_insert": "practice_app.crud_events.after_insert_student"
+#     }
+# }
+
+#override , it overrides the white listed method and also the conditon is arguments must match
+#worked
+# override_whitelisted_methods = {
+#     "practice_app.api.hello": "practice_app.api.custom_hello"
+# }
+
+#working
+#ignore_links_on_delete = ["studentnote"]
+
+
+# app_include_js = [
+#     "practice_app/public/js/student_timeline.js"
+# ]
+#not working - template missing
+# additional_timeline_content = {
+#     "student": [
+#         "practice_app.timeline.student_timeline"
+#     ]
+# }
+
+
+
+scheduler_events = {
+    "cron": {
+        "*/1 * * * *": [
+            "practice_app.scheduled_tasks.send_hourly_email"
+        ]
+    }
+}
+
+# not working
+# happens at interval time cron even more control
+
+# scheduler_events = {
+#     "all": [
+#         "practice_app.scheduled_tasks.test_scheduler"
+#     ]
+# }
+
+
+# #worked demojinja.html(www)
+# jinja = {           
+#     "methods": [
+#         "practice_app.jinja.methods"
+#     ],
+#     "filters": [
+#         "practice_app.jinja.filters"
+#     ]
+# }
+
+# auto_cancel_exempted_doctypes = ["Payment Entry"]
+# # Prevent automatic cancellation of giving linked DocTypes
+# eg: invoice linked to payment canceling invoice does cancel payment
+
+doc_events = {
+    "Test Document":{
+        "validate":"practice_app.api.hookfunc"
+    }
+}
