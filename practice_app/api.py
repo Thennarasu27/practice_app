@@ -13,6 +13,8 @@ def hookfunc(doc,method):
 
 
 #assignment
+# Assignment: python-api-documentation Assignment
+
 @frappe.whitelist()
 def func1():
     Book = frappe.qb.DocType("Book")
