@@ -1,0 +1,4 @@
+frappe.db.get_list('Doctype',filters={
+    'status':'open'
+},
+fields=['field1','field2'])

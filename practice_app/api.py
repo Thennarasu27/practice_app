@@ -60,3 +60,144 @@ def func3():
         )
         frappe.db.commit()
     return "Bulk updated - books updated"
+
+
+
+
+#form-scripts Tasks
+
+import frappe
+
+
+@frappe.whitelist()
+def create_sample_data():
+
+    # Create Suppliers
+    suppliers = [
+        {
+            "supplier_name": "ABC Supplies",
+            "country": "India",
+            "email": "abc@gmail.com"
+        },
+        {
+            "supplier_name": "XYZ Traders",
+            "country": "India",
+            "email": "xyz@gmail.com"
+        },
+        {
+            "supplier_name": "Global Tech",
+            "country": "USA",
+            "email": "global@gmail.com"
+        },
+        {
+            "supplier_name": "London Store",
+            "country": "UK",
+            "email": "london@gmail.com"
+        }
+    ]
+
+    supplier_names = {}
+
+    for data in suppliers:
+        supplier = frappe.get_doc({
+            "doctype": "Practice Supplier",
+            "supplier_name": data["supplier_name"],
+            "country": data["country"],
+            "email": data["email"]
+        })
+
+        supplier.insert()
+
+        supplier_names[data["supplier_name"]] = supplier.name
+
+
+    # Create Products
+    products = [
+        {
+            "product_name": "Laptop",
+            "category": "Electronics",
+            "price": 60000,
+            "discount": 10,
+            "description": "Basic laptop",
+            "available": 1,
+            "supplier": supplier_names["ABC Supplies"]
+        },
+        {
+            "product_name": "Phone",
+            "category": "Electronics",
+            "price": 30000,
+            "discount": 5,
+            "description": "Smartphone",
+            "available": 1,
+            "supplier": supplier_names["XYZ Traders"]
+        },
+        {
+            "product_name": "Mouse",
+            "category": "Accessories",
+            "price": 800,
+            "discount": 0,
+            "description": "Wireless mouse",
+            "available": 1,
+            "supplier": supplier_names["ABC Supplies"]
+        },
+        {
+            "product_name": "Keyboard",
+            "category": "Accessories",
+            "price": 2000,
+            "discount": 10,
+            "description": "USB keyboard",
+            "available": 1,
+            "supplier": supplier_names["XYZ Traders"]
+        },
+        {
+            "product_name": "Monitor",
+            "category": "Electronics",
+            "price": 15000,
+            "discount": 5,
+            "description": "24 inch monitor",
+            "available": 0,
+            "supplier": supplier_names["Global Tech"]
+        },
+        {
+            "product_name": "Tablet",
+            "category": "Electronics",
+            "price": 55000,
+            "discount": 10,
+            "description": "Android tablet",
+            "available": 1,
+            "supplier": supplier_names["Global Tech"]
+        },
+        {
+            "product_name": "Headphones",
+            "category": "Accessories",
+            "price": 5000,
+            "discount": 0,
+            "description": "Bluetooth headphones",
+            "available": 1,
+            "supplier": supplier_names["London Store"]
+        },
+        {
+            "product_name": "Camera",
+            "category": "Electronics",
+            "price": 70000,
+            "discount": 15,
+            "description": "Digital camera",
+            "available": 0,
+            "supplier": supplier_names["London Store"]
+        }
+    ]
+
+    for data in products:
+        frappe.get_doc({
+            "doctype": "Practice Product",
+            **data
+        }).insert()
+
+    frappe.db.commit()
+
+    return "4 suppliers and 8 products created successfully"
+
+
+@frappe.whitelist()
+def getproduct(doc):
+    return 
