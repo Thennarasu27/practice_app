@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Practice Product Script Report</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Final Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for(var i = 0, l = data.length; i < l; i++) { %}
+            <tr>
+                <td>{%= data[i].product_name %}</td>
+                <td>{%= data[i].category %}</td>
+                <td>{%= fmt_money(data[i].price) %}</td>
+                <td>{%= fmt_money(data[i].final_price) %}</td>
+            </tr>
+            {% } %}
+        </tbody>
+    </table>
+</div>
