@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "autoincrement",
+ "creation": "2026-08-29 11:29:14.996256",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "eid",
+  "choose",
+  "checkin",
+  "checkout",
+  "login_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "eid",
+   "fieldtype": "Link",
+   "label": "EId",
+   "options": "Employee Details"
+  },
+  {
+   "depends_on": "eval:doc.choose==\"checkin\"",
+   "fieldname": "checkin",
+   "fieldtype": "Time",
+   "label": "checkin"
+  },
+  {
+   "depends_on": "eval:doc.choose==\"checkout\"",
+   "fieldname": "checkout",
+   "fieldtype": "Time",
+   "label": "checkout"
+  },
+  {
+   "fieldname": "choose",
+   "fieldtype": "Select",
+   "label": "choose",
+   "options": "checkin\ncheckout"
+  },
+  {
+   "fieldname": "login_date",
+   "fieldtype": "Date",
+   "label": "Login Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-29 12:40:48.068408",
+ "modified_by": "Administrator",
+ "module": "practice app",
+ "name": "Employee Check",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "eid"
+}

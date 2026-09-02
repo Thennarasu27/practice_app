@@ -4,7 +4,7 @@ app_publisher = "Thennarasu"
 app_description = "practice"
 app_email = "thennarasum2705@gmail.com"
 app_license = "mit"
-
+fixtures = ["Client Script"]
 # Apps
 # ------------------
 

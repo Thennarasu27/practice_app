@@ -198,6 +198,20 @@ def create_sample_data():
     return "4 suppliers and 8 products created successfully"
 
 
+# @frappe.whitelist()
+# def getproduct(doc):
+#     return 
+from frappe.utils import time_diff
 @frappe.whitelist()
-def getproduct(doc):
-    return 
+	def caltime(checkin,checkout):
+		checkin=frappe.utils.get_time(checkin)
+		checkout=frappe.utils.get_time(checkout)
+		seconds = (
+        checkout.hour * 3600 + checkout.minute * 60 + checkout.second
+        - checkin.hour * 3600 - checkin.minute * 60 - checkin.second
+    )
+
+    hours = seconds / 3600
+
+    return hours
+
